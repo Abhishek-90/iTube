@@ -10,7 +10,7 @@ function ITubeApp() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/video-search-result/:search-query"
+          path="/video-search-result/:query"
           element={<VideoSearchResult />}
         />
         <Route path="/video-stream/:id" element={<VideoStream />} />
