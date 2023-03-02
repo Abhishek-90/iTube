@@ -22,7 +22,7 @@ function ITubeApp() {
 }
 
 const AppContainer = styled.div`
-  width: 100vh;
+  width: 100vw;
 `;
 
 export default ITubeApp;
