@@ -13,7 +13,7 @@ function ITubeApp() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/result" element={<VideoSearchResult />} />
+        <Route path="/result/*" element={<VideoSearchResult />} />
         <Route path="/stream" element={<VideoStream />} />
       </Routes>
       <Footer />
