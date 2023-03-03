@@ -1,4 +1,4 @@
-export const options = {
+export const searchOptions = {
   method: "GET",
   headers: {
     "X-RapidAPI-Key": process.env.REACT_APP_YOUTUBE_API_KEY,
