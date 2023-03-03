@@ -1,7 +1,22 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import appFetch from "../utils/AppFetch";
+import * as S from "../constants/theme";
+import * as E from "../constants/endpoints";
+import * as O from "../constants/fetchOptions";
 
 function Navbar() {
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const Navigate = useNavigate();
+  const onSearchButtonClick = async () => {
+    const searchResponseData = await appFetch(
+      `${E.rapidApi}/${E.search}?query=${searchKeyword}`,
+      O.options
+    );
+    Navigate(`/result?query=${searchKeyword}`);
+  };
+
   return (
     <Container>
       <Content>
@@ -10,8 +25,14 @@ function Navbar() {
           <span>iTube</span>
         </CustomLink>
         <SearchBoxWrapper>
-          <Input placeholder="Enter Search" />
-          <SearchButton>
+          <Input
+            placeholder="Enter Search"
+            value={searchKeyword}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setSearchKeyword(e.target.value)
+            }
+          />
+          <SearchButton onClick={onSearchButtonClick}>
             <img src="/images/search-icon.svg" alt="search-icon" />
           </SearchButton>
         </SearchBoxWrapper>
@@ -22,7 +43,7 @@ function Navbar() {
 
 const Container = styled.div`
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${S.black};
 `;
 
 const Content = styled.div`
@@ -65,7 +86,7 @@ const Input = styled.input`
   line-height: 1.33;
   border-radius: 50px;
   outline: none;
-  border: 1px solid black;
+  border: 1px solid ${S.black};
 `;
 
 const SearchButton = styled.button`
@@ -78,7 +99,7 @@ const SearchButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-left: 1px solid black;
+  border-left: 1px solid ${S.black};
 
   & > img {
     pointer-events: none;
