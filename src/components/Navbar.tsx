@@ -1,20 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
-import appFetch from "../utils/AppFetch";
 import * as S from "../constants/theme";
-import * as E from "../constants/endpoints";
-import * as O from "../constants/fetchOptions";
 
 function Navbar() {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
   const Navigate = useNavigate();
-  const onSearchButtonClick = async () => {
-    const searchResponseData = await appFetch(
-      `${E.rapidApi}/${E.search}?query=${searchKeyword}`,
-      O.options
-    );
-    Navigate(`/result?query=${searchKeyword}`);
+
+  const onSearchButtonClick = () => {
+    if (searchKeyword) {
+      Navigate(`/result?query=${searchKeyword}`);
+    }
   };
 
   return (
