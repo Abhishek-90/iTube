@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import * as S from "../constants/theme";
+// import Logo from "";
 
 function Navbar() {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -17,7 +18,7 @@ function Navbar() {
     <Container>
       <Content>
         <CustomLink to="/">
-          <img src="https://i.ibb.co/s9Qys2j/logo.png" alt="logo" />
+          <img src={require("../assets/logo.png")} alt="logo" />
           <span>iTube</span>
         </CustomLink>
         <SearchBoxWrapper>
@@ -67,6 +68,7 @@ const CustomLink = styled(Link)`
 
   & > span {
     background: transparent;
+    font-weight: 700;
   }
 `;
 
