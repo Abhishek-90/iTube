@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import * as S from "../constants/theme";
-// import Logo from "";
+import Logo from "../assets/logo.png";
 
 function Navbar() {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -18,7 +18,7 @@ function Navbar() {
     <Container>
       <Content>
         <CustomLink to="/">
-          <img src={require("../assets/logo.png")} alt="logo" />
+          <img src={Logo} alt="logo" />
           <span>iTube</span>
         </CustomLink>
         <SearchBoxWrapper>
@@ -64,6 +64,10 @@ const CustomLink = styled(Link)`
     height: 45px;
     margin-right: 10px;
     background: transparent;
+
+    @media (max-width: 480px) {
+      height: 30px;
+    }
   }
 
   & > span {
@@ -78,13 +82,18 @@ const SearchBoxWrapper = styled.div`
 `;
 
 const Input = styled.input`
-  width: 300px;
+  width: 400px;
   padding: 12px;
   font-size: 14px;
   line-height: 1.33;
   border-radius: 50px;
   outline: none;
   border: 1px solid ${S.black};
+
+  @media (max-width: 480px) {
+    width: 220px;
+    font-size: 12px;
+  }
 `;
 
 const SearchButton = styled.button`
