@@ -71,6 +71,8 @@ const VideoInformation = styled.div`
   overflow-x: hidden;
 
   span {
+    font-size: 14px;
+    line-height: 1.7;
     :first-child {
       font-weight: bold;
       font-size: 18px;
