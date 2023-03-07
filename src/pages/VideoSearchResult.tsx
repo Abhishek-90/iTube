@@ -13,11 +13,10 @@ function VideoSearchResult() {
   useEffect(() => {
     async function getData() {
       const response = await appFetch(
-        `${E.rapidApi}/${E.search}?query=${params.get("query")}`,
+        `${E.rapidApi}/${E.search}?query=${params.get("query")}&type=v`,
         O.searchOptions
       );
       setVideoData(response.contents);
-      console.log(videoData);
     }
     getData();
   }, [params]);
@@ -26,8 +25,8 @@ function VideoSearchResult() {
     <Container>
       <Content>
         {videoData.length > 0 &&
-          videoData.map((videoData: any) => (
-            <VideoItem videoData={videoData.video} />
+          videoData.map((videoData: any, index: number) => (
+            <VideoItem key={index} videoData={videoData.video} />
           ))}
       </Content>
     </Container>
