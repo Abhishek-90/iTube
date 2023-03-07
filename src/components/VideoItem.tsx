@@ -49,7 +49,7 @@ const Content = styled.div`
     padding: 10px 8px;
     display: flex;
     flex-direction: column;
-    background: orange;
+    /* background: orange; */
   }
 `;
 
@@ -68,11 +68,15 @@ const VideoInformation = styled.div`
   padding: 0 20px;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 
   span {
     :first-child {
       font-weight: bold;
       font-size: 18px;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 `;
