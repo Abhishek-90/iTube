@@ -5,7 +5,7 @@ iTube is an online video streaming app that you can use to browse through your f
 ## Tech Stack
 
 - ReactJs + Typescript
-- [Styled-Components](https://styled-components.com/)
+- <a href="https://styled-components.com/" target="_blank">Styled-Components</a>
 
 ## Resources used
 
